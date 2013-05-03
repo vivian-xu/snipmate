@@ -1,3 +1,4 @@
+# coding: UTF-8
 import itertools
 
 
@@ -59,16 +60,22 @@ def seq_time(choice):
 
 
 def isOverWeight(choice, weight=8):
-    """ return True is overweight"""
+    """若该 choice 中所有客户需要的总货物量不超过 weight，return True"""
+
     weight_demand = [0, 2, 1.5, 4.5, 3, 1.5, 4, 2.5, 3]  # q
     total = 0
     for i in choice:
         total += weight_demand[i]
-    return total > 8
+    return total > weight
 
 
 def single_car(clients):
-    """calculate choices of optional cars for clients sequence"""
+    """存在一个全集，不管有多少量车，每一量车的送货方案都属于该集合
+
+    该集合中的元素需要满足 2 个条件:
+    1. 运送重量不超过载重量。
+    2. 所有客户都按时到达
+    """
     choices = [[]]
     for client in clients:
         new_choices = []
