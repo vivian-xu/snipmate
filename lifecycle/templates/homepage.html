@@ -7,7 +7,9 @@
 
     <p>life cycle managent page</p>
 
+    <form action="/vm/test001" method='get'>
     <input type='submit' value='example' name='suspend' onclick="return confirm ('are you sure?')">
+    </form>
 
     {% for action in actions %} 
     <input {% for k, v in action.items %} {{ k }}="{{ v }}" {% endfor %} />

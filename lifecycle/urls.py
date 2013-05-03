@@ -7,4 +7,5 @@ from django.conf.urls import patterns, url  # include
 # url(r'^admin/', include(admin.site.urls)),
 urlpatterns = patterns('',
                        url(r'^$', 'views.home', name='home'),
+                       url(r'vm/([^/])', 'views.actions'),
                        )

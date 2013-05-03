@@ -18,6 +18,10 @@ def home(request):
 
     context['actions'] = [start, stop]
 
-    print(context)
-
     return render_to_response('homepage.html', context)
+
+
+def actions(request, *args, **kwargs):
+    print(request.GET)
+    print(request.POST)
+    return render_to_response('homepage.html')
